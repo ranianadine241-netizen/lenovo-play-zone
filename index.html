@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LENOVO PLAY ZONE - HALLOWEEN EDITION</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --noche: #160a2b;
+  --noche-2: #25104a;
+  --calabaza: #ff8a1f;
+  --calabaza-osc: #c4560a;
+  --slime: #9be34a;
+  --papel: #fff3e0;
+  --tinta: #2a1740;
+  --error: #ffb4a8;
+}
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Nunito", system-ui, sans-serif;
+  color: var(--papel);
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(255,138,31,.28), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 10% 100%, rgba(155,227,74,.12), transparent 70%),
+    linear-gradient(180deg, var(--noche-2), var(--noche) 70%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+#cielo { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+.luna {
+  position: fixed; top: 4vh; right: 6vw; width: clamp(70px, 14vw, 140px); aspect-ratio: 1;
+  border-radius: 50%; z-index: 0; pointer-events: none;
+  background: radial-gradient(circle at 35% 35%, #fff6d6, #ffd98a 70%);
+  box-shadow: 0 0 60px 20px rgba(255,200,90,.35);
+}
+main { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 84px 18px 60px; }
+.logo { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 16px); left: 16px; z-index: 2; display: block; width: clamp(130px, 34vw, 200px); height: auto; filter: drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
+h1 {
+  font-family: "Creepster", cursive; font-weight: 400;
+  font-size: clamp(2.6rem, 11vw, 4.4rem); line-height: 1; margin: 12px 0 6px;
+  color: var(--calabaza); letter-spacing: .03em;
+  text-shadow: 0 3px 0 var(--calabaza-osc), 0 0 28px rgba(255,138,31,.55);
+}
+h1 .l1 { display: block; font-size: clamp(2.2rem, 10vw, 3.8rem); }
+h1 .l2 { display: block; font-size: clamp(1.5rem, 6.5vw, 2.4rem); color: var(--slime); text-shadow: 0 2px 0 #4c7a1a, 0 0 22px rgba(155,227,74,.45); margin-top: 4px; }
+.sub { margin: 0 0 22px; font-size: 1.05rem; max-width: 46ch; color: #f0dcc4; }
+form, .panel {
+  background: rgba(22, 10, 43, .82);
+  border: 2px solid var(--calabaza);
+  border-radius: 20px;
+  padding: 22px 18px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 10px 40px rgba(0,0,0,.45);
+}
+fieldset { border: 0; padding: 0; margin: 0 0 22px; min-width: 0; }
+legend {
+  font-family: "Nunito", system-ui, sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--slime);
+  letter-spacing: 0; padding: 0; margin-bottom: 10px;
+}
+label { display: block; font-weight: 800; font-size: .95rem; margin: 12px 0 5px; }
+input[type=text], input[type=tel] {
+  width: 100%; padding: 12px 14px; font: inherit; font-size: 1rem;
+  background: var(--papel); color: var(--tinta);
+  border: 2px solid transparent; border-radius: 12px;
+}
+input:focus-visible, button:focus-visible, select:focus-visible {
+  outline: 3px solid var(--slime); outline-offset: 2px;
+}
+input.malo { border-color: #ff5a44; }
+.err { color: var(--error); font-size: .88rem; margin: 4px 0 0; min-height: 0; }
+.contador { display: flex; align-items: center; gap: 14px; }
+.contador button {
+  width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--calabaza);
+  background: transparent; color: var(--calabaza); font-size: 1.8rem; line-height: 1; cursor: pointer;
+}
+.contador button:hover { background: var(--calabaza); color: var(--noche); }
+.contador output { font-family: "Creepster", cursive; font-size: 2.6rem; min-width: 2ch; text-align: center; color: var(--papel); }
+.hijo {
+  border: 2px dashed rgba(255,138,31,.7); border-radius: 16px; padding: 4px 14px 16px; margin-top: 14px;
+  animation: aparece .35s ease-out;
+}
+.hijo h3 { font-family: "Nunito", system-ui, sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--calabaza); margin: 12px 0 0; letter-spacing: 0; }
+@keyframes aparece { from { opacity: 0; transform: translateY(-8px) scale(.98); } to { opacity: 1; transform: none; } }
+.enviar {
+  width: 100%; padding: 15px; font: inherit; font-weight: 800; font-size: 1.15rem; cursor: pointer;
+  background: var(--calabaza); color: #2a1200; border: 0; border-radius: 14px;
+  box-shadow: 0 5px 0 var(--calabaza-osc);
+}
+.enviar:hover { filter: brightness(1.08); }
+.enviar:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--calabaza-osc); }
+.enviar[disabled] { opacity: .6; cursor: wait; }
+.sub-tit { font-size: 1.25rem; color: var(--papel); }
+.datos { list-style: none; margin: 0 0 18px; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.datos li { background: rgba(22,10,43,.7); border: 1px solid rgba(255,138,31,.6); border-radius: 12px; padding: 10px 14px; font-weight: 700; }
+.datos span { display: inline-block; min-width: 3.6em; color: var(--calabaza); font-weight: 800; text-transform: uppercase; font-size: .78rem; letter-spacing: .08em; margin-right: 8px; }
+.plazo { display: inline-block; margin: 0 0 18px; padding: 8px 14px; border: 2px solid var(--slime); border-radius: 999px; color: var(--slime); font-weight: 800; font-size: .95rem; }
+.check { display: flex; align-items: center; gap: 10px; font-weight: 800; margin: 14px 0 0; cursor: pointer; }
+.check input { width: 22px; height: 22px; accent-color: var(--calabaza); flex: none; }
+input:disabled { opacity: .45; cursor: not-allowed; }
+.cerrado h2 { font-family: "Creepster", cursive; font-weight: 400; font-size: 2.4rem; color: var(--calabaza); margin: 6px 0; text-align: center; }
+.cerrado p { text-align: center; }
+.contacto { margin: 18px 0 0; font-size: .95rem; text-align: center; color: #f0dcc4; }
+.contacto a { color: var(--slime); font-weight: 800; overflow-wrap: anywhere; }
+.aviso { margin-top: 12px; font-size: .95rem; color: var(--error); }
+.gracias { text-align: center; }
+.gracias h2 { font-family: "Creepster", cursive; font-weight: 400; font-size: 2.6rem; color: var(--slime); margin: 6px 0; }
+.btn2 { font: inherit; font-weight: 800; padding: 11px 18px; border-radius: 12px; cursor: pointer; background: transparent; color: var(--calabaza); border: 2px solid var(--calabaza); margin-top: 10px; }
+.btn2:hover { background: var(--calabaza); color: var(--noche); }
+.admin { margin-top: 14px; }
+.modbar { text-align: center; margin-top: 22px; }
+.admin h2 { font-family: "Creepster", cursive; font-weight: 400; font-size: 1.8rem; color: var(--slime); margin: 0 0 6px; }
+.tabla { overflow-x: auto; margin-top: 12px; }
+table { border-collapse: collapse; width: 100%; font-size: .88rem; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid rgba(255,243,224,.2); vertical-align: top; }
+th { color: var(--calabaza); }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { .hijo { animation: none; } }
+</style>
+</head>
+<body>
+<canvas id="cielo" aria-hidden="true"></canvas>
+<div class="luna" aria-hidden="true"></div>
+
+<img class="logo" alt="Lenovo Motorola" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWsAAAA3CAMAAAD9o5tyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMAUExURQAAAP///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wc9CwgAAAD/dFJOUwABAgMEBQYHCAkKCwwNDg8QERITFBUWFxgZGhscHR4fICEiIyQlJicoKSorLC0uLzAx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">
+
+<main>
+  <h1><span class="l1">LENOVO PLAY ZONE</span><span class="l2">HALLOWEEN EDITION</span></h1>
+  <p class="sub"><strong class="sub-tit">¡Ven con tus peques a divertirte!</strong><br>Recuerda que pueden participar niños de hasta 12 años.</p>
+  <ul class="datos">
+    <li><span>Fecha</span> Miércoles 21 de octubre</li>
+    <li><span>Hora</span> De 3:00 p. m. a 5:00 p. m.</li>
+  </ul>
+
+  <p class="plazo" id="plazo">Inscríbete hasta el lunes 19 de octubre</p>
+
+  <section class="panel cerrado" id="cerrado" hidden>
+    <h2>Inscripciones cerradas</h2>
+    <p>El plazo terminó el lunes 19 de octubre. ¡Gracias por tu interés!</p>
+    <p class="contacto">Consultas con Rania Baca: <a href="mailto:rquispe1@lenovo.com">rquispe1@lenovo.com</a></p>
+  </section>
+
+  <form id="form" novalidate>
+    <fieldset>
+      <legend>Tus datos</legend>
+      <label for="adulto">Tu nombre completo</label>
+      <input type="text" id="adulto" autocomplete="name" required>
+      <p class="err" data-err="adulto"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend>¿Cuántos niños vas a llevar?</legend>
+      <div class="contador">
+        <button type="button" id="menos" aria-label="Quitar un niño">−</button>
+        <output id="cantidad" aria-live="polite">1</output>
+        <button type="button" id="mas" aria-label="Agregar un niño">+</button>
+      </div>
+      <div id="hijos"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Acompañante del niño (opcional)</legend>
+      <label class="check" for="sin-acomp"><input type="checkbox" id="sin-acomp"> No vendrá un acompañante conmigo</label>
+      <label for="acomp-nombre">Nombre del acompañante</label>
+      <input type="text" id="acomp-nombre" autocomplete="off">
+      <p class="err" data-err="acomp-nombre"></p>
+      <label for="acomp-dni">DNI del acompañante</label>
+      <input type="tel" id="acomp-dni" inputmode="numeric" maxlength="8" autocomplete="off">
+      <p class="err" data-err="acomp-dni"></p>
+    </fieldset>
+
+    <button type="submit" class="enviar" id="enviar">Inscribirme</button>
+    <p class="aviso" id="aviso" role="alert" hidden></p>
+    <p class="contacto">Para mayor información, dudas o consultas, escribe a Rania Baca: <a href="mailto:rquispe1@lenovo.com">rquispe1@lenovo.com</a></p>
+  </form>
+
+  <section class="panel gracias" id="gracias" hidden>
+    <svg width="90" height="60" viewBox="0 0 90 60" aria-hidden="true"><path d="M45 20c-4-8-12-14-26-14 4 6 5 12 3 17-6-2-14-1-20 4 8 0 13 3 15 8 6-4 14-3 18 3 3-5 6-9 10-9s7 4 10 9c4-6 12-7 18-3 2-5 7-8 15-8-6-5-14-6-20-4-2-5-1-11 3-17-14 0-22 6-26 14z" fill="#ff8a1f"/></svg>
+    <h2>¡Inscripción lista!</h2>
+    <p id="gracias-txt"></p>
+    <button type="button" class="btn2" id="otra">Inscribir a otra persona</button>
+    <p class="contacto">¿Dudas? Escribe a Rania Baca: <a href="mailto:rquispe1@lenovo.com">rquispe1@lenovo.com</a></p>
+  </section>
+
+  <div class="modbar"><button type="button" class="btn2" id="modbtn" hidden>Vista moderador</button></div>
+
+  <section class="panel admin" id="admin" hidden>
+    <h2>Inscritos</h2>
+    <p id="admin-resumen">Cargando…</p>
+    <button type="button" class="btn2" id="csv" hidden>Descargar Excel (CSV)</button>
+    <div class="tabla"><table id="tabla" hidden>
+      <thead><tr><th>Responsable</th><th>Niños (nombre – DNI)</th><th>Acompañante</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </section>
+</main>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+// ====== PEGA AQUÍ TU CONFIGURACIÓN DE FIREBASE (Configuración del proyecto > Tus apps > Web) ======
+const firebaseConfig = {
+  apiKey: "AIzaSyCBjyyE9wyA-lIvmx1hnA70kHz8AaH0LNY",
+  authDomain: "lenovo-play-zone.firebaseapp.com",
+  projectId: "lenovo-play-zone",
+  storageBucket: "lenovo-play-zone.firebasestorage.app",
+  messagingSenderId: "279217377261",
+  appId: "1:279217377261:web:1b54df89b6f2e4a951a1e4"
+};
+// ================================================================================================
+const app = initializeApp(firebaseConfig);
+const fs = getFirestore(app);
+const auth = getAuth(app);
+(function () {
+  // ---------- Murciélagos ----------
+  var cv = document.getElementById('cielo'), cx = cv.getContext('2d');
+  var W, H, bats = [], reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size() { W = cv.width = innerWidth; H = cv.height = innerHeight; }
+  addEventListener('resize', size); size();
+  function nuevoBat(x) {
+    var s = 0.5 + Math.random() * 1.1;
+    return { x: x !== undefined ? x : -60, y: Math.random() * H * 0.8, s: s,
+      v: (0.6 + Math.random() * 1.4) * (s > 1 ? 1.2 : 0.8), fase: Math.random() * 6,
+      onda: 20 + Math.random() * 40, base: 0, alpha: 0.35 + s * 0.35 };
+  }
+  var n = Math.max(7, Math.min(16, Math.round(W / 90)));
+  for (var i = 0; i < n; i++) { var b = nuevoBat(Math.random() * W); b.base = b.y; bats.push(b); }
+  function dibujaBat(b, t) {
+    var ala = Math.sin(t * 0.012 * b.v * 3 + b.fase);
+    cx.save(); cx.translate(b.x, b.y); cx.scale(b.s, b.s);
+    cx.fillStyle = 'rgba(12,4,24,' + b.alpha + ')';
+    cx.strokeStyle = 'rgba(255,138,31,' + (b.alpha * 0.5) + ')'; cx.lineWidth = 1;
+    cx.beginPath();
+    cx.moveTo(0, 0);
+    cx.quadraticCurveTo(-14, -16 - ala * 14, -34, -4 - ala * 18);
+    cx.quadraticCurveTo(-26, 2, -22, 8);
+    cx.quadraticCurveTo(-14, 2, -8, 8);
+    cx.quadraticCurveTo(-3, 3, 0, 9);
+    cx.quadraticCurveTo(3, 3, 8, 8);
+    cx.quadraticCurveTo(14, 2, 22, 8);
+    cx.quadraticCurveTo(26, 2, 34, -4 - ala * 18);
+    cx.quadraticCurveTo(14, -16 - ala * 14, 0, 0);
+    cx.fill(); cx.stroke();
+    cx.beginPath(); cx.arc(0, 2, 5, 0, 7); cx.fill();
+    cx.beginPath(); cx.moveTo(-4, -2); cx.lineTo(-3, -9); cx.lineTo(0, -3); cx.lineTo(3, -9); cx.lineTo(4, -2); cx.fill();
+    cx.fillStyle = 'rgba(255,230,120,' + b.alpha + ')';
+    cx.fillRect(-3, 0, 1.6, 1.6); cx.fillRect(1.5, 0, 1.6, 1.6);
+    cx.restore();
+  }
+  function frame(t) {
+    cx.clearRect(0, 0, W, H);
+    for (var i = 0; i < bats.length; i++) {
+      var b = bats[i];
+      if (!reduce) { b.x += b.v; b.y = b.base + Math.sin(t * 0.002 * b.v + b.fase) * b.onda; }
+      if (b.x > W + 60) { var nb = nuevoBat(-60); nb.base = nb.y; bats[i] = nb; b = nb; }
+      dibujaBat(b, reduce ? 0 : t);
+    }
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  // ---------- Formulario ----------
+  var $ = function (id) { return document.getElementById(id); };
+  var MAX = 6, cant = 1;
+  var form = $('form'), hijosBox = $('hijos');
+
+  function renderHijos() {
+    var previos = [];
+    hijosBox.querySelectorAll('.hijo').forEach(function (h) {
+      previos.push([h.querySelector('[data-k=nombre]').value, h.querySelector('[data-k=dni]').value]);
+    });
+    hijosBox.innerHTML = '';
+    for (var i = 0; i < cant; i++) {
+      var d = document.createElement('div');
+      d.className = 'hijo';
+      var n = i + 1;
+      d.innerHTML =
+        '<h3>' + (cant === 1 ? 'Tu niño' : 'Niño ' + n) + '</h3>' +
+        '<label for="hn' + i + '">Nombre del niño</label>' +
+        '<input type="text" id="hn' + i + '" data-k="nombre" autocomplete="off">' +
+        '<p class="err" data-err="hn' + i + '"></p>' +
+        '<label for="hd' + i + '">DNI del niño</label>' +
+        '<input type="tel" id="hd' + i + '" data-k="dni" inputmode="numeric" maxlength="8" autocomplete="off">' +
+        '<p class="err" data-err="hd' + i + '"></p>';
+      if (previos[i]) {
+        d.querySelector('[data-k=nombre]').value = previos[i][0];
+        d.querySelector('[data-k=dni]').value = previos[i][1];
+      }
+      hijosBox.appendChild(d);
+    }
+    $('cantidad').textContent = cant;
+    $('menos').disabled = cant <= 1;
+    $('mas').disabled = cant >= MAX;
+  }
+  $('menos').onclick = function () { if (cant > 1) { cant--; renderHijos(); } };
+  $('mas').onclick = function () {
+    if (cant < MAX) {
+      cant++; renderHijos();
+      var ult = hijosBox.lastElementChild; if (ult) ult.querySelector('input').focus();
+    }
+  };
+
+  // solo dígitos en DNI
+  form.addEventListener('input', function (e) {
+    var t = e.target;
+    if (t.type === 'tel') t.value = t.value.replace(/\D/g, '').slice(0, 8);
+  });
+
+  function setErr(id, msg) {
+    var el = $(id); var p = form.querySelector('[data-err="' + id + '"]');
+    if (p) p.textContent = msg || '';
+    if (el) el.classList.toggle('malo', !!msg);
+    return !msg;
+  }
+  function validar() {
+    var ok = true, primero = null;
+    function chk(id, cond, msg) {
+      var v = setErr(id, cond ? '' : msg);
+      if (!v) { ok = false; if (!primero) primero = $(id); }
+    }
+    chk('adulto', $('adulto').value.trim().length >= 3, 'Escribe tu nombre completo.');
+    for (var i = 0; i < cant; i++) {
+      chk('hn' + i, $('hn' + i).value.trim().length >= 2, 'Escribe el nombre del niño.');
+      chk('hd' + i, /^\d{8}$/.test($('hd' + i).value), 'El DNI debe tener 8 números.');
+    }
+    var an = $('acomp-nombre').value.trim(), ad = $('acomp-dni').value;
+    if (!$('sin-acomp').checked && (an || ad)) {
+      chk('acomp-nombre', an.length >= 3, 'Escribe el nombre del acompañante.');
+      chk('acomp-dni', /^\d{8}$/.test(ad), 'El DNI debe tener 8 números.');
+    } else { setErr('acomp-nombre', ''); setErr('acomp-dni', ''); }
+    if (primero) primero.focus();
+    return ok;
+  }
+
+  function recoger() {
+    var hijos = [];
+    for (var i = 0; i < cant; i++) hijos.push({ nombre: $('hn' + i).value.trim(), dni: $('hd' + i).value });
+    return {
+      responsable: $('adulto').value.trim(),
+      hijos: hijos,
+      acompanante: ($('sin-acomp').checked || !$('acomp-nombre').value.trim()) ? null : { nombre: $('acomp-nombre').value.trim(), dni: $('acomp-dni').value },
+      fecha: new Date().toISOString()
+    };
+  }
+
+  // ---------- Guardado (Firebase Firestore) ----------
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var aviso = $('aviso'); aviso.hidden = true;
+    if (!validar()) return;
+    var datos = recoger();
+    var btn = $('enviar'); btn.disabled = true; btn.textContent = 'Enviando…';
+    try {
+      datos.creada = serverTimestamp();
+      await addDoc(collection(fs, 'inscripciones'), datos);
+      $('gracias-txt').textContent = datos.responsable + ', quedaron inscritos ' + datos.hijos.length +
+        (datos.hijos.length === 1 ? ' niño' : ' niños') + (datos.acompanante ? ' con el acompañante ' + datos.acompanante.nombre : ' sin acompañante') + '. ¡Los esperamos!';
+      form.hidden = true; $('gracias').hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      aviso.hidden = false;
+      aviso.textContent = 'No pudimos guardar tu inscripción. Revisa tu conexión e inténtalo de nuevo.';
+      console.error(err);
+    } finally {
+      btn.disabled = false; btn.textContent = 'Inscribirme';
+    }
+  });
+
+  $('otra').onclick = function () {
+    form.reset(); cant = 1; renderHijos();
+    $('gracias').hidden = true; form.hidden = false;
+    form.querySelectorAll('.err').forEach(function (p) { p.textContent = ''; });
+  };
+
+  // ---------- Panel de inscritos (solo moderadores con Google) ----------
+  var filas = [], suscrito = false;
+  var modbtn = $('modbtn');
+  modbtn.hidden = false; modbtn.textContent = 'Acceso moderador';
+  modbtn.onclick = async function () {
+    try {
+      if (!auth.currentUser) await signInWithPopup(auth, new GoogleAuthProvider());
+    } catch (e) { return; }
+    var abrir = $('admin').hidden;
+    $('admin').hidden = !abrir;
+    modbtn.textContent = abrir ? 'Ocultar vista moderador' : 'Vista moderador';
+    if (abrir && !suscrito) { suscrito = true; mostrarAdmin(); }
+    if (abrir) $('admin').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  function mostrarAdmin() {
+    onSnapshot(collection(fs, 'inscripciones'), function (snap) {
+      filas = snap.docs.map(function (d) { return d.data(); });
+      filas.sort(function (a, b) { return String(a.fecha).localeCompare(String(b.fecha)); });
+      var tb = $('tabla').querySelector('tbody'); tb.innerHTML = '';
+      var ninos = 0;
+      filas.forEach(function (f) {
+        ninos += (f.hijos || []).length;
+        var tr = document.createElement('tr');
+        var c1 = document.createElement('td'); c1.textContent = f.responsable || '';
+        var c2 = document.createElement('td');
+        c2.textContent = (f.hijos || []).map(function (h) { return h.nombre + ' – ' + h.dni; }).join('\n');
+        c2.style.whiteSpace = 'pre-line';
+        var c3 = document.createElement('td');
+        c3.textContent = f.acompanante ? f.acompanante.nombre + ' – ' + f.acompanante.dni : 'Sin acompañante';
+        tr.append(c1, c2, c3); tb.appendChild(tr);
+      });
+      $('admin-resumen').textContent = filas.length + (filas.length === 1 ? ' inscripción' : ' inscripciones') + ' · ' + ninos + (ninos === 1 ? ' niño' : ' niños');
+      $('tabla').hidden = filas.length === 0; $('csv').hidden = filas.length === 0;
+    }, function () {
+      suscrito = false;
+      $('admin-resumen').textContent = 'Tu cuenta no tiene permiso para ver la lista.';
+    });
+  }
+  $('csv').onclick = function () {
+    var esc = function (s) { return '"' + String(s == null ? '' : s).replace(/"/g, '""') + '"'; };
+    var rows = [['Responsable', 'Niño', 'DNI niño', 'Acompañante', 'DNI acompañante', 'Fecha'].map(esc).join(',')];
+    filas.forEach(function (f) {
+      (f.hijos || []).forEach(function (h) {
+        rows.push([f.responsable, h.nombre, h.dni, f.acompanante && f.acompanante.nombre, f.acompanante && f.acompanante.dni, f.fecha].map(esc).join(','));
+      });
+    });
+    var blob = new Blob(['\ufeff' + rows.join('\n')], { type: 'text/csv;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = 'inscritos-halloween.csv';
+    document.body.appendChild(a); a.click(); a.remove();
+  };
+
+  $('sin-acomp').addEventListener('change', function () {
+    var off = this.checked;
+    ['acomp-nombre', 'acomp-dni'].forEach(function (id) {
+      var el = $(id); el.disabled = off; if (off) { el.value = ''; setErr(id, ''); }
+    });
+  });
+
+  // Fecha límite: lunes 19 de octubre de 2026, 23:59 hora de Lima (UTC-5)
+  var LIMITE = new Date('2026-10-19T23:59:59-05:00');
+  if (new Date() > LIMITE) {
+    form.hidden = true; $('plazo').hidden = true; $('cerrado').hidden = false;
+  }
+
+  renderHijos();
+})();
+</script>
+</body>
+</html>
