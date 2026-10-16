@@ -67,7 +67,7 @@ legend {
   letter-spacing: 0; padding: 0; margin-bottom: 10px;
 }
 label { display: block; font-weight: 800; font-size: .95rem; margin: 12px 0 5px; }
-input[type=text], input[type=tel], input[type=password] {
+input[type=text], input[type=tel] {
   width: 100%; padding: 12px 14px; font: inherit; font-size: 1rem;
   background: var(--papel); color: var(--tinta);
   border: 2px solid transparent; border-radius: 12px;
@@ -135,7 +135,7 @@ th { color: var(--calabaza); }
 <canvas id="cielo" aria-hidden="true"></canvas>
 <div class="luna" aria-hidden="true"></div>
 
-<img class="logo" alt="Lenovo Motorola" src="logo.png">
+<img class="logo" alt="Lenovo Motorola" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWsAAAA3CAMAAAD9o5tyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMAUExURQAAAP///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wc9CwgAAAD/dFJOUwABAgMEBQYHCAkKCwwNDg8QERITFBUWFxgZGhscHR4fICEiIyQlJicoKSorLC0uLzAx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">
 
 <main>
   <h1><span class="l1">LENOVO PLAY ZONE</span><span class="l2">HALLOWEEN EDITION</span></h1>
@@ -203,38 +203,39 @@ th { color: var(--calabaza); }
     <p class="contacto">¿Dudas? Escribe a Rania Baca: <a href="mailto:rquispe1@lenovo.com">rquispe1@lenovo.com</a></p>
   </section>
 
-  <div class="modbar"><button type="button" class="btn2" id="modbtn">Vista moderador</button></div>
+  <div class="modbar"><button type="button" class="btn2" id="modbtn" hidden>Vista moderador</button></div>
 
   <section class="panel admin" id="admin" hidden>
-    <h2>Vista moderador</h2>
-    <form id="login" novalidate>
-      <label for="mail">Correo</label>
-      <input type="text" id="mail" autocomplete="username" inputmode="email">
-      <label for="clave">Contraseña</label>
-      <input type="password" id="clave" autocomplete="current-password">
-      <p class="aviso" id="login-err" role="alert" hidden></p>
-      <button type="submit" class="btn2">Entrar</button>
-    </form>
-    <div id="lista" hidden>
-      <p id="admin-resumen">Cargando…</p>
-      <button type="button" class="btn2" id="csv" hidden>Descargar Excel (CSV)</button>
-      <button type="button" class="btn2" id="recalc">Recalcular cupos</button>
-      <button type="button" class="btn2" id="salir">Cerrar sesión</button>
-      <div class="tabla"><table id="tabla" hidden>
-        <thead><tr><th>Responsable</th><th>Niños (nombre – DNI)</th><th>Acompañante</th><th></th></tr></thead>
-        <tbody></tbody>
-      </table></div>
-    </div>
+    <h2>Inscritos</h2>
+    <p id="admin-resumen">Cargando…</p>
+    <button type="button" class="btn2" id="csv" hidden>Descargar Excel (CSV)</button>
+    <button type="button" class="btn2" id="recalc">Recalcular cupos</button>
+    <div class="tabla"><table id="tabla" hidden>
+      <thead><tr><th>Responsable</th><th>Niños (nombre – DNI)</th><th>Acompañante</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table></div>
   </section>
 </main>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import { getFirestore, collection, doc, getDoc, getDocs, setDoc, deleteDoc, runTransaction, serverTimestamp, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-import { firebaseConfig } from "./firebase-config.js";
+import { getFirestore, collection, doc, getDoc, getDocs, setDoc, deleteDoc, runTransaction, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
-(async function () {
+// ====== PEGA AQUÍ TU CONFIGURACIÓN DE FIREBASE (Configuración del proyecto > Tus apps > Web) ======
+const firebaseConfig = {
+  apiKey: "AIzaSyCBjyyE9wyA-lIvmx1hnA70kHz8AaH0LNY",
+  authDomain: "lenovo-play-zone.firebaseapp.com",
+  projectId: "lenovo-play-zone",
+  storageBucket: "lenovo-play-zone.firebasestorage.app",
+  messagingSenderId: "279217377261",
+  appId: "1:279217377261:web:1b54df89b6f2e4a951a1e4"
+};
+// ================================================================================================
+const app = initializeApp(firebaseConfig);
+const fs = getFirestore(app);
+const auth = getAuth(app);
+(function () {
   // ---------- Murciélagos ----------
   var cv = document.getElementById('cielo'), cx = cv.getContext('2d');
   var W, H, bats = [], reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -368,13 +369,8 @@ import { firebaseConfig } from "./firebase-config.js";
     };
   }
 
-  // ---------- Firebase ----------
-  var app = initializeApp(firebaseConfig);
-  var db = getFirestore(app);
-  var auth = getAuth(app);
-  var COL = 'inscripciones';
-
-  var refCupos = doc(db, 'cupos', 'contador');
+  // ---------- Cupos (máximo 15 niños) ----------
+  var refCupos = doc(fs, 'cupos', 'contador');
 
   function pintarCupos() {
     var pill = $('cupos'), nota = $('nota-cupos');
@@ -398,6 +394,7 @@ import { firebaseConfig } from "./firebase-config.js";
     pintarCupos();
   }, function () { ocupados = null; pintarCupos(); });
 
+  // ---------- Guardado (Firebase Firestore) ----------
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
     var aviso = $('aviso'); aviso.hidden = true;
@@ -405,8 +402,8 @@ import { firebaseConfig } from "./firebase-config.js";
     var datos = recoger();
     var btn = $('enviar'); btn.disabled = true; btn.textContent = 'Enviando…';
     try {
-      var refIns = doc(collection(db, COL));
-      await runTransaction(db, async function (tx) {
+      var refIns = doc(collection(fs, 'inscripciones'));
+      await runTransaction(fs, async function (tx) {
         var c = await tx.get(refCupos);
         if (!c.exists()) throw { code: 'sin-contador' };
         var actual = c.data().ninos || 0;
@@ -417,7 +414,8 @@ import { firebaseConfig } from "./firebase-config.js";
           responsable: datos.responsable,
           hijos: datos.hijos,
           acompanante: datos.acompanante,
-          fecha: serverTimestamp()
+          fecha: datos.fecha,
+          creada: serverTimestamp()
         });
       });
       $('gracias-txt').textContent = datos.responsable + ', quedaron inscritos ' + datos.hijos.length +
@@ -438,6 +436,7 @@ import { firebaseConfig } from "./firebase-config.js";
       } else {
         aviso.textContent = 'No pudimos guardar tu inscripción. Revisa tu conexión e inténtalo de nuevo.';
       }
+      console.error(err);
     } finally {
       btn.disabled = false; btn.textContent = 'Inscribirme';
     }
@@ -448,62 +447,25 @@ import { firebaseConfig } from "./firebase-config.js";
     form.querySelectorAll('.err').forEach(function (p) { p.textContent = ''; });
   };
 
-  $('sin-acomp').addEventListener('change', function () {
-    var off = this.checked;
-    ['acomp-nombre', 'acomp-dni'].forEach(function (id) {
-      var el = $(id); el.disabled = off; if (off) { el.value = ''; setErr(id, ''); }
-    });
-  });
-
-  // ---------- Vista moderador ----------
-  var filas = [], desuscribir = null;
-  $('modbtn').onclick = function () {
+  // ---------- Panel de inscritos (solo moderadores con Google) ----------
+  var filas = [], suscrito = false;
+  var modbtn = $('modbtn');
+  modbtn.hidden = false; modbtn.textContent = 'Acceso moderador';
+  modbtn.onclick = async function () {
+    try {
+      if (!auth.currentUser) await signInWithPopup(auth, new GoogleAuthProvider());
+    } catch (e) { return; }
+    asegurarContador();
     var abrir = $('admin').hidden;
     $('admin').hidden = !abrir;
-    this.textContent = abrir ? 'Ocultar vista moderador' : 'Vista moderador';
+    modbtn.textContent = abrir ? 'Ocultar vista moderador' : 'Vista moderador';
+    if (abrir && !suscrito) { suscrito = true; mostrarAdmin(); }
     if (abrir) $('admin').scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
-
-  $('login').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    var er = $('login-err'); er.hidden = true;
-    try {
-      await signInWithEmailAndPassword(auth, $('mail').value.trim(), $('clave').value);
-    } catch (err) {
-      er.hidden = false; er.textContent = 'Correo o contraseña incorrectos.';
-    }
-  });
-  $('salir').onclick = function () { signOut(auth); };
-
-  async function recalcular() {
-    var snap = await getDocs(collection(db, COL));
-    var n = 0; snap.forEach(function (d) { n += (d.data().hijos || []).length; });
-    await setDoc(refCupos, { ninos: n, ultima: '' });
-    return n;
-  }
-  async function asegurarContador() {
-    try { var d = await getDoc(refCupos); if (!d.exists()) await recalcular(); } catch (e) {}
-  }
-  async function borrar(f) {
-    var nn = (f.hijos || []).length;
-    if (!confirm('¿Borrar la inscripción de ' + f.responsable + ' (' + nn + (nn === 1 ? ' niño' : ' niños') + ')? Esta acción no se puede deshacer.')) return;
-    try { await deleteDoc(doc(db, COL, f._id)); await recalcular(); }
-    catch (e) { alert('No se pudo borrar. Inténtalo de nuevo.'); }
-  }
-  $('recalc').onclick = async function () {
-    var b = this; b.disabled = true; b.textContent = 'Recalculando…';
-    try { var n = await recalcular(); b.textContent = 'Listo: ' + n + ' de ' + TOPE; }
-    catch (e) { b.textContent = 'No se pudo recalcular'; }
-    setTimeout(function () { b.disabled = false; b.textContent = 'Recalcular cupos'; }, 2500);
-  };
-
-  onAuthStateChanged(auth, function (u) {
-    if (desuscribir) { desuscribir(); desuscribir = null; }
-    $('lista').hidden = !u; $('login').hidden = !!u;
-    if (!u) { $('clave').value = ''; return; }
-    asegurarContador();
-    desuscribir = onSnapshot(query(collection(db, COL), orderBy('fecha')), function (snap) {
+  function mostrarAdmin() {
+    onSnapshot(collection(fs, 'inscripciones'), function (snap) {
       filas = snap.docs.map(function (d) { return Object.assign({ _id: d.id }, d.data()); });
+      filas.sort(function (a, b) { return String(a.fecha).localeCompare(String(b.fecha)); });
       var tb = $('tabla').querySelector('tbody'); tb.innerHTML = '';
       var ninos = 0;
       filas.forEach(function (f) {
@@ -524,27 +486,53 @@ import { firebaseConfig } from "./firebase-config.js";
       $('admin-resumen').textContent = filas.length + (filas.length === 1 ? ' inscripción' : ' inscripciones') + ' · ' + ninos + (ninos === 1 ? ' niño' : ' niños') + ' de ' + TOPE + ' cupos' +
         (ocupados != null && ocupados !== ninos ? '. Aviso: el contador público marca ' + ocupados + '; pulsa "Recalcular cupos".' : '');
       $('tabla').hidden = filas.length === 0; $('csv').hidden = filas.length === 0;
-    }, function (err) {
-      $('admin-resumen').textContent = err && err.code === 'permission-denied'
-        ? 'Esta cuenta no tiene permiso para ver las inscripciones.' : 'No se pudo cargar la lista.';
+    }, function () {
+      suscrito = false;
+      $('admin-resumen').textContent = 'Tu cuenta no tiene permiso para ver la lista.';
     });
-  });
+  }
+  async function recalcular() {
+    var snap = await getDocs(collection(fs, 'inscripciones'));
+    var n = 0; snap.forEach(function (d) { n += (d.data().hijos || []).length; });
+    await setDoc(refCupos, { ninos: n, ultima: '' });
+    return n;
+  }
+  async function asegurarContador() {
+    try { var d = await getDoc(refCupos); if (!d.exists()) await recalcular(); } catch (e) {}
+  }
+  async function borrar(f) {
+    var nn = (f.hijos || []).length;
+    if (!confirm('¿Borrar la inscripción de ' + f.responsable + ' (' + nn + (nn === 1 ? ' niño' : ' niños') + ')? Esta acción no se puede deshacer.')) return;
+    try { await deleteDoc(doc(fs, 'inscripciones', f._id)); await recalcular(); }
+    catch (e) { alert('No se pudo borrar. Inténtalo de nuevo.'); }
+  }
+  $('recalc').onclick = async function () {
+    var b = this; b.disabled = true; b.textContent = 'Recalculando…';
+    try { var n = await recalcular(); b.textContent = 'Listo: ' + n + ' de ' + TOPE; }
+    catch (e) { b.textContent = 'No se pudo recalcular'; }
+    setTimeout(function () { b.disabled = false; b.textContent = 'Recalcular cupos'; }, 2500);
+  };
 
   $('csv').onclick = function () {
     var esc = function (s) { return '"' + String(s == null ? '' : s).replace(/"/g, '""') + '"'; };
     var rows = [['Responsable', 'Niño', 'DNI niño', 'Acompañante', 'DNI acompañante', 'Fecha'].map(esc).join(',')];
     filas.forEach(function (f) {
-      var fecha = f.fecha && f.fecha.toDate ? f.fecha.toDate().toLocaleString('es-PE') : '';
       (f.hijos || []).forEach(function (h) {
-        rows.push([f.responsable, h.nombre, h.dni, f.acompanante && f.acompanante.nombre, f.acompanante && f.acompanante.dni, fecha].map(esc).join(','));
+        rows.push([f.responsable, h.nombre, h.dni, f.acompanante && f.acompanante.nombre, f.acompanante && f.acompanante.dni, f.fecha].map(esc).join(','));
       });
     });
     var blob = new Blob(['\ufeff' + rows.join('\n')], { type: 'text/csv;charset=utf-8' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob); a.download = 'inscritos-halloween.csv';
     document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
   };
+
+  $('sin-acomp').addEventListener('change', function () {
+    var off = this.checked;
+    ['acomp-nombre', 'acomp-dni'].forEach(function (id) {
+      var el = $(id); el.disabled = off; if (off) { el.value = ''; setErr(id, ''); }
+    });
+  });
 
   // Fecha límite: lunes 19 de octubre de 2026, 23:59 hora de Lima (UTC-5)
   var LIMITE = new Date('2026-10-19T23:59:59-05:00');
