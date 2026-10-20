@@ -145,18 +145,18 @@ th { color: var(--calabaza); }
     <li><span>Hora</span> De 3:00 p. m. a 5:00 p. m.</li>
   </ul>
 
-  <p class="plazo" id="plazo">Inscríbete hasta el lunes 19 de octubre</p>
+  <p class="plazo" id="plazo">Inscríbete hasta el martes 20 de octubre</p>
   <p class="plazo cupos" id="cupos" hidden></p>
 
   <section class="panel cerrado" id="cerrado" hidden>
     <h2>Inscripciones cerradas</h2>
-    <p>El plazo terminó el lunes 19 de octubre. ¡Gracias por tu interés!</p>
+    <p>El plazo terminó el martes 20 de octubre. ¡Gracias por tu interés!</p>
     <p class="contacto">Consultas con Rania Baca: <a href="mailto:rquispe1@lenovo.com">rquispe1@lenovo.com</a></p>
   </section>
 
   <section class="panel cerrado" id="lleno" hidden>
-    <h2>Cupos completos</h2>
-    <p>Ya se completaron los 15 cupos de niños para el evento. ¡Gracias por tu interés!</p>
+    <h2>Inscripciones cerradas</h2>
+    <p>Ya se completaron los 15 cupos de niños. ¡Gracias por tu interés!</p>
     <p class="contacto">Consultas con Rania Baca: <a href="mailto:rquispe1@lenovo.com">rquispe1@lenovo.com</a></p>
   </section>
 
@@ -383,6 +383,7 @@ const auth = getAuth(app);
     }
     if (fuera) return;
     var lleno = ocupados != null && restantes() === 0;
+    $('plazo').hidden = lleno;
     form.hidden = enviado || lleno;
     $('gracias').hidden = !enviado;
     $('lleno').hidden = enviado || !lleno;
@@ -534,8 +535,8 @@ const auth = getAuth(app);
     });
   });
 
-  // Fecha límite: lunes 19 de octubre de 2026, 23:59 hora de Lima (UTC-5)
-  var LIMITE = new Date('2026-10-19T23:59:59-05:00');
+  // Fecha límite: martes 20 de octubre de 2026, 23:59 hora de Lima (UTC-5)
+  var LIMITE = new Date('2026-10-20T23:59:59-05:00');
   if (new Date() > LIMITE) {
     fuera = true; form.hidden = true; $('plazo').hidden = true; $('lleno').hidden = true; $('cerrado').hidden = false;
   }
